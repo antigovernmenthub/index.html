@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>AntiGovernment – Internal Control Node</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AntiGovernment – Current Files</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --bg: #05050a;
@@ -25,14 +21,11 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       color: var(--text-main);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* BIG TOP BAR */
+    a { color: inherit; text-decoration: none; }
 
     header {
       display: flex;
@@ -82,12 +75,17 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      position: relative;
+      align-items: center;
     }
+
+    nav li { position: relative; }
 
     nav a {
       padding: 0.35rem 0.7rem;
       border: 1px solid transparent;
       transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
     }
 
     nav a:hover {
@@ -95,111 +93,118 @@
       background: rgba(255, 77, 77, 0.08);
     }
 
-    /* PAGE LAYOUT */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #020208;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0;
+      list-style: none;
+      min-width: 190px;
+      display: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+      z-index: 20;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.35rem 0.9rem;
+      border: 0;
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+    }
+
+    .dropdown-menu li a:hover {
+      background: rgba(255, 77, 77, 0.08);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
 
     .page {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 3rem;
+      padding: 2.2rem 1.5rem 3rem;
+      flex: 1;
     }
 
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 1.5rem 1.75rem;
-      box-shadow: 0 0 22px rgba(0, 0, 0, 0.4);
-    }
-
-    .panel + .panel {
-      margin-top: 1.5rem;
-    }
-
-    .panel-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
+    .hero-title {
+      font-size: 1.4rem;
       letter-spacing: 0.18em;
-      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
     }
 
-    .panel-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    /* CURRENT FILES LIST */
-
-    .files-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.6rem;
+    .hero-subtitle {
       font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
 
-    .file-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .feature-card {
       border: 1px solid var(--border);
-      padding: 0.6rem 0.75rem;
       background: #0d0d14;
-      transition: border-color 0.2s, background 0.2s;
+      padding: 0.9rem;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
     }
 
-    .file-row:hover {
+    .feature-card:hover {
       border-color: var(--accent-danger);
       background: rgba(255, 77, 77, 0.05);
+      transform: translateY(-2px);
     }
 
-    .file-left {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .file-id {
-      font-family: "Consolas", "SF Mono", monospace;
-      font-size: 0.78rem;
-      padding: 0.1rem 0.5rem;
-      border: 1px solid var(--border);
-    }
-
-    .file-name {
-      font-size: 0.9rem;
-    }
-
-    .file-right {
-      font-size: 0.75rem;
+    .feature-label {
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       color: var(--text-muted);
+      margin-bottom: 0.3rem;
     }
 
-    .file-link {
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.6rem;
+    .feature-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
     }
-
-    .file-link-important {
-      border-color: var(--accent-danger);
-      color: var(--accent-danger);
-    }
-
-    /* FOOTER */
 
     footer {
       border-top: 1px solid var(--border);
-      margin-top: 2rem;
-      padding: 0.85rem 1.5rem;
+      padding: 1.1rem 2.5rem 1.3rem;
       font-size: 0.7rem;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+      background: #020208;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
       justify-content: space-between;
     }
+
+    .footer-meta {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-meta span { white-space: nowrap; }
 
     @media (max-width: 720px) {
       header {
@@ -208,22 +213,9 @@
         gap: 0.9rem;
         padding-inline: 1.5rem;
       }
-
-      .page {
-        padding-inline: 1rem;
-      }
-
-      .file-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.35rem;
-      }
-
-      .file-right {
-        align-self: flex-end;
-      }
-
-      footer {
+      .page { padding-inline: 1rem; }
+      footer { padding-inline: 1.5rem; }
+      .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -241,115 +233,55 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#files">Current Files</a></li>
-        <li><a href="#mandate">Mandate</a></li>
-        <li><a href="#log">Update Log</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="files.html">Sections ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="files.html">Current Files</a></li>
+            <li><a href="mandate.html">Mandate & Jurisdiction</a></li>
+            <li><a href="log.html">Update Log</a></li>
+          </ul>
+        </li>
+        <!-- removed direct Yingling link from nav -->
       </ul>
     </nav>
   </header>
 
   <main class="page">
-    <!-- CURRENT FILES -->
-    <section id="files" class="panel">
-      <h2 class="panel-title">Current Files</h2>
-      <p class="panel-subtitle">Active subjects under AntiGovernment observation.</p>
+    <h1 class="hero-title">Independent documentation hub</h1>
+    <p class="hero-subtitle">
+      AntiGovernment is a small, unofficial node that collects and rearranges public interactions into
+      case-style records. It is not a law firm, not a court, and not a campaign — just a place where
+      procedures and outcomes are written down in plain language.
+    </p>
 
-      <div class="files-list">
-        <!-- YINGLING (links out) -->
-        <a class="file-row" href="https://yinglingfiles.neocities.org/" target="_blank" rel="noopener noreferrer">
-          <div class="file-left">
-            <span class="file-id">AG-001</span>
-            <span class="file-name">Yingling</span>
-          </div>
-          <div class="file-right">
-            <span class="file-link file-link-important">Open File</span>
-          </div>
-        </a>
-
-        <!-- Made-up surnames -->
-        <div class="file-row">
-          <div class="file-left">
-            <span class="file-id">AG-002</span>
-            <span class="file-name">Li</span>
-          </div>
-          <div class="file-right">
-            <span class="file-link">Pending</span>
-          </div>
-        </div>
-
-        <div class="file-row">
-          <div class="file-left">
-            <span class="file-id">AG-003</span>
-            <span class="file-name">Nguyen</span>
-          </div>
-          <div class="file-right">
-            <span class="file-link">Pending</span>
-          </div>
-        </div>
-
-        <div class="file-row">
-          <div class="file-left">
-            <span class="file-id">AG-004</span>
-            <span class="file-name">Sato</span>
-          </div>
-          <div class="file-right">
-            <span class="file-link">Pending</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MANDATE & JURISDICTION -->
-    <section id="mandate" class="panel">
-      <h2 class="panel-title">Mandate & Jurisdiction</h2>
-      <p class="panel-subtitle">
-        Describes what this node reviews and what it deliberately ignores. Neutral language, no calls to action.
-      </p>
-
-      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.9rem;">
-        AntiGovernment operates as a documentation node focused on the collection and arrangement of publicly
-        observable interactions between individuals and institutions. Materials are reorganized into case-style
-        records to examine how procedures, policies, and discretion impact ordinary people.
-      </p>
-
-      <ul style="list-style: none; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
-        <li>
-          <strong style="color: var(--text-main);">Scope:</strong>
-          Redacted screenshots, transcripts, and timelines drawn from publicly accessible channels.
-        </li>
-        <li>
-          <strong style="color: var(--text-main);">Exclusions:</strong>
-          Home addresses, phone numbers, and other direct identifiers are not stored or published.
-        </li>
-        <li>
-          <strong style="color: var(--text-main);">Intent:</strong>
-          Observation and documentation, not legal advice or coordination of harassment.
-        </li>
-      </ul>
-    </section>
-
-    <!-- UPDATE LOG -->
-    <section id="log" class="panel">
-      <h2 class="panel-title">Update Log</h2>
-      <p class="panel-subtitle">Brief record of changes to active files.</p>
-
-      <ul style="list-style: none; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
-        <li>
-          <strong style="color: var(--accent-danger);">2026-04-09</strong>
-          · AG-001 linked to Yingling Files public archive.
-        </li>
-        <li>
-          <strong style="color: var(--accent-danger);">2026-04-09</strong>
-          · Node description added; scope and exclusions clarified.
-        </li>
-      </ul>
+    <section class="feature-row">
+      <a class="feature-card" href="files.html">
+        <div class="feature-label">Section</div>
+        <div class="feature-title">Current Files</div>
+        <p>List of subjects currently tracked in this node.</p>
+      </a>
+      <a class="feature-card" href="mandate.html">
+        <div class="feature-label">Section</div>
+        <div class="feature-title">Mandate & Jurisdiction</div>
+        <p>Plain-language description of what this site documents and what it deliberately leaves out.</p>
+      </a>
+      <a class="feature-card" href="log.html">
+        <div class="feature-label">Section</div>
+        <div class="feature-title">Update Log</div>
+        <p>Short record of changes, so visitors can see when something actually moved.</p>
+      </a>
     </section>
   </main>
 
   <footer>
-    <span>Node: AntiGovernment · Internal Control</span>
-    <span>Last Updated: April 9, 2026</span>
-    <span>Compiled and documented by AG</span>
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <span>Node: AntiGovernment · Internal Control</span>
+        <span>Last Updated: April 9, 2026</span>
+        <span>Compiled and documented by AG</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
