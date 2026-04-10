@@ -110,6 +110,10 @@
       box-shadow: 0 0 22px rgba(0, 0, 0, 0.4);
     }
 
+    .panel + .panel {
+      margin-top: 1.5rem;
+    }
+
     .panel-title {
       font-size: 0.9rem;
       text-transform: uppercase;
@@ -181,6 +185,22 @@
       color: var(--accent-danger);
     }
 
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+    }
+
     @media (max-width: 720px) {
       header {
         flex-direction: column;
@@ -202,6 +222,11 @@
       .file-right {
         align-self: flex-end;
       }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -217,11 +242,14 @@
     <nav>
       <ul>
         <li><a href="#files">Current Files</a></li>
+        <li><a href="#mandate">Mandate</a></li>
+        <li><a href="#log">Update Log</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="page">
+    <!-- CURRENT FILES -->
     <section id="files" class="panel">
       <h2 class="panel-title">Current Files</h2>
       <p class="panel-subtitle">Active subjects under AntiGovernment observation.</p>
@@ -270,6 +298,58 @@
         </div>
       </div>
     </section>
+
+    <!-- MANDATE & JURISDICTION -->
+    <section id="mandate" class="panel">
+      <h2 class="panel-title">Mandate & Jurisdiction</h2>
+      <p class="panel-subtitle">
+        Describes what this node reviews and what it deliberately ignores. Neutral language, no calls to action.
+      </p>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.9rem;">
+        AntiGovernment operates as a documentation node focused on the collection and arrangement of publicly
+        observable interactions between individuals and institutions. Materials are reorganized into case-style
+        records to examine how procedures, policies, and discretion impact ordinary people.
+      </p>
+
+      <ul style="list-style: none; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+        <li>
+          <strong style="color: var(--text-main);">Scope:</strong>
+          Redacted screenshots, transcripts, and timelines drawn from publicly accessible channels.
+        </li>
+        <li>
+          <strong style="color: var(--text-main);">Exclusions:</strong>
+          Home addresses, phone numbers, and other direct identifiers are not stored or published.
+        </li>
+        <li>
+          <strong style="color: var(--text-main);">Intent:</strong>
+          Observation and documentation, not legal advice or coordination of harassment.
+        </li>
+      </ul>
+    </section>
+
+    <!-- UPDATE LOG -->
+    <section id="log" class="panel">
+      <h2 class="panel-title">Update Log</h2>
+      <p class="panel-subtitle">Brief record of changes to active files.</p>
+
+      <ul style="list-style: none; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+        <li>
+          <strong style="color: var(--accent-danger);">2026-04-09</strong>
+          · AG-001 linked to Yingling Files public archive.
+        </li>
+        <li>
+          <strong style="color: var(--accent-danger);">2026-04-09</strong>
+          · Node description added; scope and exclusions clarified.
+        </li>
+      </ul>
+    </section>
   </main>
+
+  <footer>
+    <span>Node: AntiGovernment · Internal Control</span>
+    <span>Last Updated: April 9, 2026</span>
+    <span>Compiled and documented by AG</span>
+  </footer>
 </body>
 </html>
