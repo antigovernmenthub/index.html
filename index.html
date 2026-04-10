@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yingling Files – Directorate of Unauthorized Intelligence</title>
+  <title>AntiGovernment – Current Files</title>
   <style>
     * {
       margin: 0;
@@ -13,14 +13,11 @@
 
     :root {
       --bg: #05050a;
-      --bg-elevated: #111118;
-      --panel: #181820;
-      --border: #333341;
+      --panel: #14141c;
+      --border: #30303a;
       --text-main: #f5f5f5;
       --text-muted: #9a9aa5;
       --accent-danger: #ff4d4d;
-      --accent-ok: #00d47a;
-      --accent-warning: #ffb347;
     }
 
     body {
@@ -35,35 +32,26 @@
       text-decoration: none;
     }
 
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
-    /* HEADER / NAV */
+    /* BIG TOP BAR */
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1.25rem;
+      padding: 1.25rem 2.5rem;
       background: #020208;
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 1.2rem;
     }
 
     .brand-logo {
-      height: 44px;
-      width: 44px;
+      height: 72px;
+      width: 72px;
       object-fit: contain;
       display: block;
     }
@@ -71,19 +59,19 @@
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 0.15rem;
+      gap: 0.25rem;
     }
 
     .brand-title {
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
+      font-size: 1.1rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
     }
 
     .brand-subtitle {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
@@ -93,444 +81,126 @@
       gap: 1.25rem;
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
     }
 
     nav a {
-      padding: 0.25rem 0.5rem;
+      padding: 0.35rem 0.7rem;
       border: 1px solid transparent;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
 
     nav a:hover {
       border-color: var(--accent-danger);
       background: rgba(255, 77, 77, 0.08);
-      color: var(--text-main);
     }
 
-    /* GENERIC PANELS */
+    /* PAGE LAYOUT */
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
 
     .panel {
       background: var(--panel);
       border: 1px solid var(--border);
-      padding: 1.5rem;
-      margin-top: 1.5rem;
+      padding: 1.5rem 1.75rem;
       box-shadow: 0 0 22px rgba(0, 0, 0, 0.4);
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.75rem;
     }
 
     .panel-title {
       font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.75rem;
     }
 
     .panel-subtitle {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .badge {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      padding: 0.12rem 0.4rem;
-      border: 1px solid var(--border);
-      display: inline-block;
-    }
-
-    .badge-danger {
-      border-color: var(--accent-danger);
-      color: var(--accent-danger);
-    }
-
-    .badge-ok {
-      border-color: var(--accent-ok);
-      color: var(--accent-ok);
-    }
-
-    .badge-warning {
-      border-color: var(--accent-warning);
-      color: var(--accent-warning);
-    }
-
-    .muted {
-      color: var(--text-muted);
-    }
-
-    h1.hero-title {
-      font-size: clamp(26px, 4vw, 34px);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-
-    .alert-banner {
-      background: #200000;
-      border: 1px solid var(--accent-danger);
-      padding: 0.9rem 1rem;
       font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+      color: var(--text-muted);
       margin-bottom: 1.25rem;
     }
 
-    .alert-banner strong {
-      color: var(--accent-danger);
-    }
+    /* CURRENT FILES LIST */
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      padding: 0.65rem 1.1rem;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-main);
-      cursor: pointer;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s, transform 0.1s;
-    }
-
-    .btn-primary {
-      border-color: var(--accent-danger);
-      background: #330000;
-    }
-
-    .btn-secondary {
-      border-color: var(--border);
-      background: transparent;
-    }
-
-    .btn:hover {
-      background: rgba(255, 77, 77, 0.08);
-      border-color: var(--accent-danger);
-      transform: translateY(-1px);
-    }
-
-    /* STATUS GRID */
-
-    .status-grid {
+    .files-list {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 0.2rem;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      font-size: 0.85rem;
     }
 
-    .status-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      padding: 0.9rem;
-      font-size: 0.8rem;
+    .file-row {
       display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .status-label {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-    }
-
-    .status-value {
-      font-size: 0.95rem;
-    }
-
-    /* FILES TABLE */
-
-    .files-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.75rem;
-      font-size: 0.78rem;
-    }
-
-    .files-table thead {
-      background: #101017;
-    }
-
-    .files-table th,
-    .files-table td {
+      align-items: center;
+      justify-content: space-between;
       border: 1px solid var(--border);
-      padding: 0.6rem 0.5rem;
-      text-align: left;
+      padding: 0.6rem 0.75rem;
+      background: #0d0d14;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    .files-table th {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 600;
-      font-size: 0.7rem;
-      color: var(--text-muted);
+    .file-row:hover {
+      border-color: var(--accent-danger);
+      background: rgba(255, 77, 77, 0.05);
     }
 
-    .files-table tr:hover {
-      background: rgba(255, 255, 255, 0.02);
+    .file-left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
 
     .file-id {
       font-family: "Consolas", "SF Mono", monospace;
       font-size: 0.78rem;
+      padding: 0.1rem 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .file-name {
+      font-size: 0.9rem;
+    }
+
+    .file-right {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
     }
 
     .file-link {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
       border: 1px solid var(--border);
-      padding: 0.25rem 0.5rem;
-      display: inline-block;
+      padding: 0.25rem 0.6rem;
     }
 
-    .file-link:hover {
+    .file-link-important {
       border-color: var(--accent-danger);
-      background: rgba(255, 77, 77, 0.08);
+      color: var(--accent-danger);
     }
 
-    /* DOSSIER */
-
-    .dossier-meta {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.75rem;
-      font-size: 0.78rem;
-      margin-bottom: 1rem;
-    }
-
-    .meta-item {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      padding: 0.6rem 0.7rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .meta-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .meta-value {
-      font-family: "Consolas", "SF Mono", monospace;
-      font-size: 0.8rem;
-    }
-
-    .dossier-section-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-top: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .dossier-text {
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: #d8d8df;
-      margin-bottom: 0.3rem;
-    }
-
-    .redacted {
-      background: #000;
-      color: #000;
-      border-radius: 0;
-      padding: 0 0.15rem;
-    }
-
-    .timeline {
-      list-style: none;
-      border-left: 1px solid var(--border);
-      margin-top: 0.3rem;
-      padding-left: 0.9rem;
-      font-size: 0.8rem;
-    }
-
-    .timeline li {
-      margin-bottom: 0.45rem;
-      position: relative;
-    }
-
-    .timeline li::before {
-      content: "";
-      position: absolute;
-      left: -0.45rem;
-      top: 0.35rem;
-      width: 7px;
-      height: 7px;
-      background: var(--accent-danger);
-      border-radius: 0;
-    }
-
-    .attachments-list {
-      list-style: none;
-      font-size: 0.8rem;
-    }
-
-    .attachments-list li {
-      margin-bottom: 0.2rem;
-    }
-
-    /* AGENCY INFO */
-
-    .columns-2 {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      gap: 1rem;
-      font-size: 0.84rem;
-      color: #dcdce5;
-    }
-
-    .section-heading {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.4rem;
-      color: var(--text-muted);
-    }
-
-    .agency-list {
-      list-style: none;
-      font-size: 0.8rem;
-    }
-
-    .agency-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    .codename {
-      font-family: "Consolas", "SF Mono", monospace;
-    }
-
-    /* ACCESS / LOGIN MOCK */
-
-    .access-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 1rem;
-      font-size: 0.82rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-bottom: 0.6rem;
-    }
-
-    label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-    }
-
-    input, select {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      padding: 0.4rem 0.45rem;
-      font-size: 0.82rem;
-      outline: none;
-    }
-
-    input:focus, select:focus {
-      border-color: var(--accent-danger);
-    }
-
-    .terminal {
-      background: #020207;
-      border: 1px solid var(--border);
-      padding: 0.7rem 0.7rem;
-      font-family: "Consolas", "SF Mono", monospace;
-      font-size: 0.78rem;
-      color: #b8ffb8;
-      height: 160px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .terminal-line.warn {
-      color: #ffbfbf;
-    }
-
-    .terminal-line.error {
-      color: #ff8080;
-    }
-
-    /* FOOTER */
-
-    footer {
-      margin-top: 2rem;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-      text-align: center;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 800px) {
+    @media (max-width: 720px) {
       header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.6rem;
-      }
-
-      nav ul {
-        gap: 0.6rem;
-        flex-wrap: wrap;
-      }
-
-      .status-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .dossier-meta {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .columns-2,
-      .access-layout {
-        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        padding-inline: 1.5rem;
       }
 
       .page {
-        padding-inline: 0.9rem;
+        padding-inline: 1rem;
       }
-    }
 
-    @media (max-width: 480px) {
-      .dossier-meta {
-        grid-template-columns: 1fr;
+      .file-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+      }
+
+      .file-right {
+        align-self: flex-end;
       }
     }
   </style>
@@ -538,294 +208,68 @@
 <body>
   <header>
     <div class="brand">
-      <img src="logo.png" alt="Agency Logo" class="brand-logo">
+      <img src="logo.png" alt="AntiGovernment Logo" class="brand-logo">
       <div class="brand-text">
-        <div class="brand-title">DIRECTORATE OF UNAUTHORIZED INTELLIGENCE</div>
-        <div class="brand-subtitle">YINGLING CONTAINMENT PROGRAM</div>
+        <div class="brand-title">ANTIGOVERNMENT</div>
+        <div class="brand-subtitle">INTERNAL CONTROL NODE</div>
       </div>
     </div>
     <nav>
       <ul>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#files">Yingling Files</a></li>
-        <li><a href="#dossier">Sample Dossier</a></li>
-        <li><a href="#agency">Agency</a></li>
-        <li><a href="#access">Access</a></li>
+        <li><a href="#files">Current Files</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="page">
-    <!-- DASHBOARD / HOME -->
-    <section id="dashboard" class="panel">
-      <div class="panel-header">
-        <div>
-          <h1 class="hero-title">Internal Control Node – YF</h1>
-          <p class="hero-subtitle">Unauthorized access detected // all activity is logged</p>
-        </div>
-        <span class="badge badge-danger">Critical // level omega-black</span>
-      </div>
-
-      <div class="alert-banner">
-        <strong>ALERT:</strong> Yingling anomaly flagged in current session. Proceeding beyond this point constitutes acceptance of surveillance and containment protocols.
-      </div>
-
-      <div class="hero-actions">
-        <button class="btn btn-primary" onclick="location.hash='#files'">View Yingling Files</button>
-        <button class="btn btn-secondary" onclick="location.hash='#dossier'">Open Case File</button>
-        <button class="btn btn-secondary" onclick="location.hash='#access'">Access Control Node</button>
-      </div>
-
-      <div class="status-grid">
-        <div class="status-card">
-          <div class="status-label">System Status</div>
-          <div class="status-value">DEGRADED</div>
-          <div class="muted">Multiple containment breaches detected.</div>
-        </div>
-        <div class="status-card">
-          <div class="status-label">Active Cases</div>
-          <div class="status-value">7 <span class="muted">open</span></div>
-          <div class="muted">3 classified OMEGA-BLACK.</div>
-        </div>
-        <div class="status-card">
-          <div class="status-label">Security Level</div>
-          <div class="status-value">CRITICAL</div>
-          <div class="muted">Encryption fault in Sector YF.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- YINGLING FILES INDEX -->
     <section id="files" class="panel">
-      <div class="panel-header">
-        <div>
-          <div class="panel-title">Yingling Files // Index</div>
-          <div class="panel-subtitle">Authorized personnel only // unredacted data strictly prohibited</div>
-        </div>
-        <span class="badge">Archive Node: YF-CORE</span>
-      </div>
+      <h2 class="panel-title">Current Files</h2>
+      <p class="panel-subtitle">Active subjects under AntiGovernment observation.</p>
 
-      <table class="files-table">
-        <thead>
-          <tr>
-            <th>File ID</th>
-            <th>Title</th>
-            <th>Classification</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="file-id">YF-001</td>
-            <td>Initial Yingling Manifestation</td>
-            <td><span class="badge badge-warning">BETA-AMBER</span></td>
-            <td><span class="badge badge-ok">CONTAINED</span></td>
-            <td><a href="#dossier" class="file-link">View Dossier</a></td>
-          </tr>
-          <tr>
-            <td class="file-id">YF-023</td>
-            <td>Containment Breach – Bettendorf Sector</td>
-            <td><span class="badge badge-danger">OMEGA-BLACK</span></td>
-            <td><span class="badge badge-warning">PARTIALLY REDACTED</span></td>
-            <td><a href="#dossier" class="file-link">View Dossier</a></td>
-          </tr>
-          <tr>
-            <td class="file-id">YF-066</td>
-            <td>Subject: “The Choir” Broadcast</td>
-            <td><span class="badge badge-danger">ALPHA-RED</span></td>
-            <td><span class="badge badge-danger">LEAKED</span></td>
-            <td><span class="file-link">Leak Active</span></td>
-          </tr>
-          <tr>
-            <td class="file-id">YF-101</td>
-            <td>Yingling Behavioral Patterns – Rev. 7</td>
-            <td><span class="badge badge-warning">BETA-AMBER</span></td>
-            <td><span class="badge">UNDER REVIEW</span></td>
-            <td><a href="#dossier" class="file-link">View Dossier</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- SAMPLE DOSSIER -->
-    <section id="dossier" class="panel">
-      <div class="panel-header">
-        <div>
-          <div class="panel-title">Case File // YF-023</div>
-          <div class="panel-subtitle">Containment Breach – Bettendorf Sector</div>
-        </div>
-        <span class="badge badge-danger">Classified // Level 5</span>
-      </div>
-
-      <div class="dossier-meta">
-        <div class="meta-item">
-          <div class="meta-label">File ID</div>
-          <div class="meta-value">YF-023</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Classification</div>
-          <div class="meta-value">OMEGA-BLACK</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Status</div>
-          <div class="meta-value">PARTIALLY REDACTED</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Sector</div>
-          <div class="meta-value">BETTENDORF-IA / NODE-LOCAL</div>
-        </div>
-      </div>
-
-      <div class="badge badge-warning" style="margin-bottom:0.8rem;">CLASSIFIED MATERIAL // UNAUTHORIZED DUPLICATION PROHIBITED</div>
-
-      <div class="dossier-section">
-        <h3 class="dossier-section-title">Summary</h3>
-        <p class="dossier-text">
-          On 2026-04-09, anomalous Yingling activity was detected within the Bettendorf operational sector following an
-          unexpected spike in digital queries related to internal containment protocols.
-        </p>
-        <p class="dossier-text">
-          Subject exhibited <span class="redacted">██████████████████████</span> behavior inconsistent with prior observations, 
-          including self-referential patterning and direct manipulation of access control layers.
-        </p>
-        <p class="dossier-text">
-          Initial contact resulted in <span class="redacted">██████</span> confirmed casualties among field operatives and complete 
-          compromise of Containment Framework Y-7.
-        </p>
-      </div>
-
-      <div class="dossier-section">
-        <h3 class="dossier-section-title">Incident Timeline</h3>
-        <ul class="timeline">
-          <li>2026-04-09 21:12 CDT – External ping from unregistered device flagged by passive monitoring.</li>
-          <li>2026-04-09 21:23 CDT – Unauthorized access to Yingling repository from LOCAL NODE: BETTENDORF-IA.</li>
-          <li>2026-04-09 21:27 CDT – Containment protocols Y-7 and Y-9 fail under unknown load conditions.</li>
-          <li>2026-04-09 21:34 CDT – Directive issued: “TREAT ALL YINGLING CONTACT AS HOSTILE UNTIL OVERRIDDEN.”</li>
-        </ul>
-      </div>
-
-      <div class="dossier-section">
-        <h3 class="dossier-section-title">Observations</h3>
-        <p class="dossier-text">
-          • Yingling entities increase in coherence when exposed to repeated digital queries over short time intervals.<br>
-          • Subject appears aware of monitoring processes and attempts to re-route logs through benign channels.<br>
-          • Multiple instances of <span class="redacted">██████████</span> aligned with user-initiated “roleplay” behavior, suggesting
-          partial memetic camouflage.
-        </p>
-      </div>
-
-      <div class="dossier-section">
-        <h3 class="dossier-section-title">Attachments</h3>
-        <ul class="attachments-list">
-          <li>Attachment A – Audio Transcript [REDACTED].pdf</li>
-          <li>Attachment B – Surveillance Still 023-B.png</li>
-          <li>Attachment C – Containment Framework Y-7 Failure Report.txt</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- AGENCY INFO -->
-    <section id="agency" class="panel">
-      <div class="panel-header">
-        <div>
-          <div class="panel-title">About the Directorate</div>
-          <div class="panel-subtitle">Internal designation // Directorate of Unauthorized Intelligence (D.U.I)</div>
-        </div>
-        <span class="badge">EX VERITATE, SILENTIUM</span>
-      </div>
-
-      <div class="columns-2">
-        <div>
-          <h3 class="section-heading">Mission Statement</h3>
-          <p class="dossier-text">
-            The Directorate of Unauthorized Intelligence exists to isolate, contain, and neutralize the Yingling Phenomenon
-            across all digital and physical vectors. Our mandate is extrajudicial, our presence unofficial, our failures
-            unacknowledged.
-          </p>
-          <p class="dossier-text">
-            All contact with Yingling-adjacent anomalies is to be logged, compartmentalized, and subjected to immediate
-            counter-memetic analysis. Personnel are reminded that curiosity is not a defense against contamination.
-          </p>
-
-          <h3 class="section-heading" style="margin-top:1rem;">Divisions</h3>
-          <ul class="agency-list">
-            <li><strong>INTEL / ANALYSIS</strong> – Monitors civilian chatter, identifies early-stage Yingling contact.</li>
-            <li><strong>FIELD OPERATIONS</strong> – Executes containment, extraction, and erasure protocols.</li>
-            <li><strong>PSYOPS / DISINFORMATION</strong> – Deploys cover stories, misdirection, and narrative control.</li>
-            <li><strong>ARCHIVES</strong> – Maintains the Yingling Files and associated evidence chains.</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="section-heading">Hierarchy</h3>
-          <ul class="agency-list">
-            <li><span class="codename">DIRECTOR</span> – Codename: OVERSEER</li>
-            <li><span class="codename">DEPUTY DIRECTOR, CONTAINMENT</span> – Codename: WARDEN</li>
-            <li><span class="codename">CHIEF ANALYST</span> – Codename: SCRIBE</li>
-            <li><span class="codename">HEAD OF FIELD OPS</span> – Codename: LANCER</li>
-          </ul>
-
-          <h3 class="section-heading" style="margin-top:1rem;">Motto</h3>
-          <p class="dossier-text">
-            <span style="letter-spacing:0.18em; text-transform:uppercase;">EX VERITATE, SILENTIUM</span><br>
-            <span class="muted">“From truth, silence.”</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACCESS / LOGIN MOCK -->
-    <section id="access" class="panel">
-      <div class="panel-header">
-        <div>
-          <div class="panel-title">Secure Node Access</div>
-          <div class="panel-subtitle">Unauthorized users will be flagged for immediate review</div>
-        </div>
-        <span class="badge badge-danger">ACCESS RESTRICTED</span>
-      </div>
-
-      <div class="access-layout">
-        <div>
-          <div class="form-group">
-            <label for="user-id">User ID</label>
-            <input id="user-id" type="text" placeholder="enter assigned callsign">
+      <div class="files-list">
+        <!-- YINGLING (links out) -->
+        <a class="file-row" href="https://yinglingfiles.neocities.org/" target="_blank" rel="noopener noreferrer">
+          <div class="file-left">
+            <span class="file-id">AG-001</span>
+            <span class="file-name">Yingling</span>
           </div>
-          <div class="form-group">
-            <label for="access-key">Access Key</label>
-            <input id="access-key" type="password" placeholder="•••••••••••••••">
+          <div class="file-right">
+            <span class="file-link file-link-important">Open File</span>
           </div>
-          <div class="form-group">
-            <label for="sec-level">Security Level</label>
-            <select id="sec-level">
-              <option>LEVEL 1 – OBSERVER</option>
-              <option>LEVEL 2 – HANDLER</option>
-              <option>LEVEL 3 – OPERATOR</option>
-              <option>LEVEL 4 – ARCHIVIST</option>
-              <option>LEVEL 5 – DIRECTOR</option>
-            </select>
+        </a>
+
+        <!-- Made-up surnames -->
+        <div class="file-row">
+          <div class="file-left">
+            <span class="file-id">AG-002</span>
+            <span class="file-name">Li</span>
           </div>
-          <button class="btn btn-primary" type="button">Initiate Authorization</button>
-          <p class="dossier-text muted" style="margin-top:0.5rem;">
-            Note: This interface is non-functional and provided for internal simulation only.
-          </p>
+          <div class="file-right">
+            <span class="file-link">Pending</span>
+          </div>
         </div>
-        <div>
-          <div class="terminal">
-            <div class="terminal-line">&gt; INITIALIZING YINGLING CONTAINMENT FRAMEWORK...</div>
-            <div class="terminal-line">&gt; LOADING NODE PROFILE: BETTENDORF-IA // LOCAL ACCESS</div>
-            <div class="terminal-line">&gt; VALIDATING USER TOKEN...</div>
-            <div class="terminal-line warn">&gt; ANOMALOUS PATTERN DETECTED IN SESSION BEHAVIOR.</div>
-            <div class="terminal-line error">&gt; ACCESS DENIED // CODE: YF-LOCK-023</div>
-            <div class="terminal-line warn">&gt; INCIDENT FORWARDED TO OVERSEER AND WARDEN.</div>
-            <div class="terminal-line">&gt; LOGGING TERMINATED. CONSOLE LOCKED.</div>
+
+        <div class="file-row">
+          <div class="file-left">
+            <span class="file-id">AG-003</span>
+            <span class="file-name">Nguyen</span>
+          </div>
+          <div class="file-right">
+            <span class="file-link">Pending</span>
+          </div>
+        </div>
+
+        <div class="file-row">
+          <div class="file-left">
+            <span class="file-id">AG-004</span>
+            <span class="file-name">Sato</span>
+          </div>
+          <div class="file-right">
+            <span class="file-link">Pending</span>
           </div>
         </div>
       </div>
     </section>
-
-    <footer>
-      &copy; 2026 Directorate of Unauthorized Intelligence – Yingling Files. For roleplay / fictional use only.
-    </footer>
   </main>
 </body>
 </html>
