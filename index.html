@@ -75,7 +75,6 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      position: relative;
       align-items: center;
     }
 
@@ -152,45 +151,10 @@
     footer {
       border-top: 1px solid var(--border);
       padding: 1.1rem 2.5rem 1.3rem;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       background: #020208;
-    }
-
-    .footer-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
-    }
-
-    .footer-meta {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .footer-meta span { white-space: nowrap; }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      align-items: flex-end;
-    }
-
-    .footer-links a {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent-danger);
+      text-align: center;
     }
 
     @media (max-width: 720px) {
@@ -202,13 +166,6 @@
       }
       .page { padding-inline: 1rem; }
       footer { padding-inline: 1.5rem; }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .footer-links {
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
@@ -223,11 +180,7 @@
     </a>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="files.html">Sections ▾</a>
-          <ul class="dropdown-menu" style="display:none;"></ul> <!-- placeholder if you want dropdown later -->
-        </li>
+        <li><a href="admin/index.html">Admin</a></li>
       </ul>
     </nav>
   </header>
@@ -260,16 +213,7 @@
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <div class="footer-meta">
-        <span>Node: AntiGovernment · Internal Control</span>
-        <span>Last Updated: April 10, 2026</span>
-        <span>Compiled and documented by AG</span>
-      </div>
-      <div class="footer-links">
-        <a href="/admin/index.html">Admin area</a>
-      </div>
-    </div>
+    AntiGovernment
   </footer>
 </body>
 </html>
