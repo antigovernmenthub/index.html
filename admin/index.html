@@ -114,6 +114,14 @@
       margin-bottom: 1.4rem;
     }
 
+    .admin-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin: 1.5rem 0 0.5rem;
+    }
+
     .admin-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -225,7 +233,6 @@
       min-height: 1em;
     }
 
-    /* hide admin content by default; JS will reveal it */
     #adminContent {
       display: none;
     }
@@ -299,31 +306,52 @@
     <div id="gate-error"></div>
   </main>
 
-  <!-- Real admin content (hidden until unlocked) -->
+  <!-- Admin content -->
   <main class="page" id="adminContent">
     <h1 class="hero-title">Admin dashboard</h1>
     <p class="hero-subtitle">
-      Internal pages for IDs, tasks, and planning future additions. Keep notes neutral and avoid storing any raw personal
-      details that aren’t needed.
+      Internal pages for IDs, tasks, and planning future additions, along with quick links into the public-facing sections.
     </p>
 
+    <h2 class="admin-section-title">Internal admin pages</h2>
     <section class="admin-grid">
       <a class="admin-card" href="ids.html">
-        <div class="admin-label">Section</div>
+        <div class="admin-label">Admin</div>
         <div class="admin-title">IDs registry</div>
         <p>Mapping between case IDs, victim IDs, and where their material lives across the archives.</p>
       </a>
 
       <a class="admin-card" href="tasks.html">
-        <div class="admin-label">Section</div>
+        <div class="admin-label">Admin</div>
         <div class="admin-title">Tasks & backlog</div>
         <p>To‑dos for new pages, redactions, design tweaks, and cross‑links between sites.</p>
       </a>
 
       <a class="admin-card" href="notes.html">
-        <div class="admin-label">Section</div>
+        <div class="admin-label">Admin</div>
         <div class="admin-title">Notes & ideas</div>
         <p>Rough notes, future section ideas, and style decisions so all admins stay consistent.</p>
+      </a>
+    </section>
+
+    <h2 class="admin-section-title">Public sections</h2>
+    <section class="admin-grid">
+      <a class="admin-card" href="../files.html">
+        <div class="admin-label">Public</div>
+        <div class="admin-title">Current files</div>
+        <p>Subjects that are currently tracked and visible on the public node.</p>
+      </a>
+
+      <a class="admin-card" href="../mandate.html">
+        <div class="admin-label">Public</div>
+        <div class="admin-title">Mandate & jurisdiction</div>
+        <p>Plain-language description of what this node documents and what it leaves outside its scope.</p>
+      </a>
+
+      <a class="admin-card" href="../log.html">
+        <div class="admin-label">Public</div>
+        <div class="admin-title">Update log</div>
+        <p>Short record of notable edits, so changes are traceable over time.</p>
       </a>
     </section>
 
@@ -341,7 +369,7 @@
   </footer>
 
   <script>
-    const ADMIN_PASS = 'password1'; // shared passphrase
+    const ADMIN_PASS = 'password1';
     const ADMIN_KEY = 'ag_admin_unlocked';
 
     const gate = document.getElementById('gate');
