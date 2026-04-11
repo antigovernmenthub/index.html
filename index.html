@@ -93,36 +93,6 @@
       background: rgba(255, 77, 77, 0.08);
     }
 
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #020208;
-      border: 1px solid var(--border);
-      padding: 0.4rem 0;
-      list-style: none;
-      min-width: 190px;
-      display: none;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
-      z-index: 20;
-    }
-
-    .dropdown-menu li a {
-      display: block;
-      padding: 0.35rem 0.9rem;
-      border: 0;
-      font-size: 0.76rem;
-      letter-spacing: 0.12em;
-    }
-
-    .dropdown-menu li a:hover {
-      background: rgba(255, 77, 77, 0.08);
-    }
-
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
-
     .page {
       max-width: 1000px;
       margin: 0 auto;
@@ -206,6 +176,23 @@
 
     .footer-meta span { white-space: nowrap; }
 
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: flex-end;
+    }
+
+    .footer-links a {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-danger);
+    }
+
     @media (max-width: 720px) {
       header {
         flex-direction: column;
@@ -219,30 +206,28 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      .footer-links {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">
+    <a class="brand" href="index.html">
       <img src="logo.png" alt="AntiGovernment Logo" class="brand-logo">
       <div class="brand-text">
         <div class="brand-title">ANTIGOVERNMENT</div>
         <div class="brand-subtitle">INTERNAL CONTROL NODE</div>
       </div>
-    </div>
+    </a>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li class="dropdown">
           <a href="files.html">Sections ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="files.html">Current Files</a></li>
-            <li><a href="mandate.html">Mandate & Jurisdiction</a></li>
-            <li><a href="log.html">Update Log</a></li>
-          </ul>
+          <ul class="dropdown-menu" style="display:none;"></ul> <!-- placeholder if you want dropdown later -->
         </li>
-        <!-- removed direct Yingling link from nav -->
       </ul>
     </nav>
   </header>
@@ -278,8 +263,11 @@
     <div class="footer-inner">
       <div class="footer-meta">
         <span>Node: AntiGovernment · Internal Control</span>
-        <span>Last Updated: April 9, 2026</span>
+        <span>Last Updated: April 10, 2026</span>
         <span>Compiled and documented by AG</span>
+      </div>
+      <div class="footer-links">
+        <a href="/admin/">Admin area</a>
       </div>
     </div>
   </footer>
