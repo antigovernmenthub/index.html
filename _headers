@@ -1,2 +1,5 @@
+/* 
+  X-Test-Header: hello
+
 /admin/*
   Basic-Auth: agadmin:password1 agadmin2:password1
