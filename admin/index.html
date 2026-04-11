@@ -240,43 +240,10 @@
     footer {
       border-top: 1px solid var(--border);
       padding: 1.1rem 2.5rem 1.3rem;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       background: #020208;
-    }
-
-    .footer-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: space-between;
-    }
-
-    .footer-meta {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .footer-meta span { white-space: nowrap; }
-
-    @media (max-width: 720px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.9rem;
-        padding-inline: 1.5rem;
-      }
-      .page { padding-inline: 1rem; }
-      footer { padding-inline: 1.5rem; }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      text-align: center;
     }
   </style>
 </head>
@@ -359,13 +326,7 @@
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <div class="footer-meta">
-        <span>Node: AntiGovernment · Admin Console</span>
-        <span>Last Updated: April 10, 2026</span>
-        <span>Compiled and documented by AG</span>
-      </div>
-    </div>
+    AntiGovernment Admin
   </footer>
 
   <script>
