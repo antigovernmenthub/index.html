@@ -166,6 +166,70 @@
       background: rgba(255, 77, 77, 0.08);
     }
 
+    /* PASSWORD GATE STYLES */
+
+    #gate {
+      max-width: 420px;
+      margin: 5rem auto 0;
+      padding: 1.8rem 1.9rem;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.4);
+      font-size: 0.85rem;
+    }
+
+    #gate-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.75rem;
+    }
+
+    #gate p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    #gate input {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border: 1px solid var(--border);
+      background: #0d0d14;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    #gate button {
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border: 1px solid var(--border);
+      background: #0d0d14;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    #gate button:hover {
+      border-color: var(--accent-danger);
+      background: rgba(255, 77, 77, 0.08);
+      color: var(--text-main);
+    }
+
+    #gate-error {
+      font-size: 0.75rem;
+      color: var(--accent-danger);
+      min-height: 1em;
+    }
+
+    /* hide admin content by default; JS will reveal it */
+    #adminContent {
+      display: none;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 1.1rem 2.5rem 1.3rem;
@@ -226,7 +290,17 @@
     </nav>
   </header>
 
-  <main class="page">
+  <!-- Password gate -->
+  <main class="page" id="gate">
+    <h1 id="gate-title">Admin access</h1>
+    <p>Enter the admin passphrase to view internal pages. This gate is only meant to keep casual visitors out.</p>
+    <input type="password" id="adminPasswordInput" placeholder="Admin password">
+    <button id="adminUnlockBtn">Unlock</button>
+    <div id="gate-error"></div>
+  </main>
+
+  <!-- Real admin content (hidden until unlocked) -->
+  <main class="page" id="adminContent">
     <h1 class="hero-title">Admin dashboard</h1>
     <p class="hero-subtitle">
       Internal pages for IDs, tasks, and planning future additions. Keep notes neutral and avoid storing any raw personal
@@ -265,5 +339,46 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const ADMIN_PASS = 'password1'; // shared passphrase
+    const ADMIN_KEY = 'ag_admin_unlocked';
+
+    const gate = document.getElementById('gate');
+    const adminContent = document.getElementById('adminContent');
+    const input = document.getElementById('adminPasswordInput');
+    const button = document.getElementById('adminUnlockBtn');
+    const error = document.getElementById('gate-error');
+
+    function showAdmin() {
+      gate.style.display = 'none';
+      adminContent.style.display = 'block';
+    }
+
+    function checkStored() {
+      if (localStorage.getItem(ADMIN_KEY) === 'true') {
+        showAdmin();
+      }
+    }
+
+    button.addEventListener('click', () => {
+      if (input.value === ADMIN_PASS) {
+        localStorage.setItem(ADMIN_KEY, 'true');
+        showAdmin();
+      } else {
+        error.textContent = 'Incorrect password.';
+        input.value = '';
+        input.focus();
+      }
+    });
+
+    input.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        button.click();
+      }
+    });
+
+    checkStored();
+  </script>
 </body>
 </html>
