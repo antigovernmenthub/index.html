@@ -1,2 +1,2 @@
 /admin/*
-  Basic-Auth: agadmin:password1 anotheradmin:password1
+  Basic-Auth: agadmin:password1 agadmin2:password1
