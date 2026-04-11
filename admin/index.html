@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AntiGovernment – Admin Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #05050a;
+      --panel: #14141c;
+      --border: #30303a;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9aa5;
+      --accent-danger: #ff4d4d;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: #020208;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .brand-logo {
+      height: 56px;
+      width: 56px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      align-items: center;
+    }
+
+    nav li { position: relative; }
+
+    nav a {
+      padding: 0.35rem 0.7rem;
+      border: 1px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      border-color: var(--accent-danger);
+      background: rgba(255, 77, 77, 0.08);
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 3rem;
+      flex: 1;
+    }
+
+    .hero-title {
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .admin-card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 1rem;
+      font-size: 0.8rem;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .admin-card:hover {
+      border-color: var(--accent-danger);
+      background: rgba(255, 77, 77, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .admin-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .admin-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .admin-footer-link {
+      display: inline-block;
+      margin-top: 1.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.6rem;
+      background: #0d0d14;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .admin-footer-link:hover {
+      border-color: var(--accent-danger);
+      background: rgba(255, 77, 77, 0.08);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.1rem 2.5rem 1.3rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: #020208;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+    }
+
+    .footer-meta {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-meta span { white-space: nowrap; }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+        padding-inline: 1.5rem;
+      }
+      .page { padding-inline: 1rem; }
+      footer { padding-inline: 1.5rem; }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../index.html">
+      <img src="../logo.png" alt="AntiGovernment Logo" class="brand-logo">
+      <div class="brand-text">
+        <div class="brand-title">ANTIGOVERNMENT</div>
+        <div class="brand-subtitle">ADMIN CONSOLE</div>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Public Home</a></li>
+        <li><a href="index.html">Admin Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1 class="hero-title">Admin dashboard</h1>
+    <p class="hero-subtitle">
+      Internal pages for IDs, tasks, and planning future additions. Keep notes neutral and avoid storing any raw personal
+      details that aren’t needed.
+    </p>
+
+    <section class="admin-grid">
+      <a class="admin-card" href="ids.html">
+        <div class="admin-label">Section</div>
+        <div class="admin-title">IDs registry</div>
+        <p>Mapping between case IDs, victim IDs, and where their material lives across the archives.</p>
+      </a>
+
+      <a class="admin-card" href="tasks.html">
+        <div class="admin-label">Section</div>
+        <div class="admin-title">Tasks & backlog</div>
+        <p>To‑dos for new pages, redactions, design tweaks, and cross‑links between sites.</p>
+      </a>
+
+      <a class="admin-card" href="notes.html">
+        <div class="admin-label">Section</div>
+        <div class="admin-title">Notes & ideas</div>
+        <p>Rough notes, future section ideas, and style decisions so all admins stay consistent.</p>
+      </a>
+    </section>
+
+    <a class="admin-footer-link" href="../index.html">Back to public home</a>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <span>Node: AntiGovernment · Admin Console</span>
+        <span>Last Updated: April 10, 2026</span>
+        <span>Compiled and documented by AG</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
